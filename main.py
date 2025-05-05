@@ -79,10 +79,9 @@ def save_results(all_papers):
     cols = ('id', 'title', 'categories', 'abstract', 'doi', 'created', 'updated', 'authors')
     df = pd.DataFrame(all_papers, columns=cols)
     
-    # Generate filenames with timestamp
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    csv_file = os.path.join(RESULTS_FOLDER, f"arxiv_papers_{timestamp}.csv")
-    json_file = os.path.join(RESULTS_FOLDER, f"arxiv_papers_{timestamp}.json")
+    # Use fixed filenames without timestamps
+    csv_file = os.path.join(RESULTS_FOLDER, "arxiv_papers.csv")
+    json_file = os.path.join(RESULTS_FOLDER, "arxiv_papers.json")
     
     # Save to CSV
     df.to_csv(csv_file, index=False)
