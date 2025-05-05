@@ -1,0 +1,8 @@
+.env
+last_update.txt
+
+# Ignore results directory contents but not the directory itself
+results/*
+!results/.gitkeep
+
+__pycache__
