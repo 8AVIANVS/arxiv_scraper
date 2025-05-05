@@ -86,7 +86,3 @@ You can modify the following constants in the script:
 - `MAX_DAYS`: Maximum number of days to look back
 - `RESULTS_FOLDER`: Folder where results are saved
 - `LAST_UPDATE_FILE`: File that tracks the last update date
-
-## License
-
-MIT
