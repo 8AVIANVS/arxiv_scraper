@@ -5,6 +5,7 @@ Provides API endpoints to view, filter, and manage scraped papers.
 """
 
 import os
+import sys
 import subprocess
 import pandas as pd
 from pathlib import Path
@@ -290,7 +291,7 @@ def run_scraper():
     task_status["scraper"] = "running"
     try:
         result = subprocess.run(
-            ["python", "main.py"],
+            [sys.executable, "main.py"],
             capture_output=True,
             text=True,
             timeout=600
@@ -309,7 +310,7 @@ def run_evaluator(num_rows: str):
     task_status["evaluator"] = "running"
     try:
         result = subprocess.run(
-            ["python", "evaluator.py", "--rows", str(num_rows)],
+            [sys.executable, "evaluator.py", "--rows", str(num_rows)],
             capture_output=True,
             text=True,
             timeout=3600
