@@ -79,6 +79,45 @@ The scraped papers will be saved in the `results` folder with fixed filenames:
 The evaluated papers will be saved with the suffix `_evaluated` added to the original filename:
 - `arxiv_papers_evaluated.csv`
 
+## Web Interface
+
+The application includes a modern web interface for exploring and managing scraped papers.
+
+### Starting the Web Server
+
+Run the web application:
+
+```bash
+python app.py
+```
+
+Or using uvicorn directly:
+
+```bash
+uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+```
+
+Then open your browser to `http://localhost:8000`
+
+### Web Interface Features
+
+- **Papers View**: Browse, search, and filter scraped papers with pagination
+- **Dashboard**: View statistics including total papers, evaluation scores, and category distribution
+- **Actions**: Trigger the scraper and evaluator directly from the web interface
+- **Paper Details**: Click any paper to view full details, abstract, and AI evaluation reasoning
+
+### API Endpoints
+
+The web server exposes the following REST API endpoints:
+
+- `GET /api/papers` - Get paginated papers with filtering options
+- `GET /api/paper/{id}` - Get a single paper by arXiv ID
+- `GET /api/stats` - Get statistics about scraped papers
+- `GET /api/categories` - Get list of unique categories
+- `POST /api/scrape` - Trigger the arXiv scraper
+- `POST /api/evaluate` - Trigger paper evaluation
+- `GET /api/task-status` - Check status of background tasks
+
 ## Configuration
 
 You can modify the following constants in the script:
